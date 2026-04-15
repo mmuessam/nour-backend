@@ -12,4 +12,4 @@ cmds = [
 ]
 
 [start]
-cmd = "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "php artisan migrate --force --skip-if-no-files || true && php artisan db:seed --force --class=DatabaseSeeder 2>/dev/null || true && php artisan serve --host=0.0.0.0 --port=$PORT"
